@@ -1,24 +1,50 @@
-    <script setup>
-    import { toRefs, defineProps } from 'vue'
-    import { RouterLink, useRoute } from 'vue-router';
-    
-    const route = useRoute()
-    
-    const props = defineProps({
-        pageUrl: String,
-        name: String
-    })
-    const { pageUrl, name } = toRefs(props)
-    </script>
+<script setup>
+import { toRefs, defineProps } from 'vue';
+import { RouterLink, useRoute } from 'vue-router';
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiHead, mdiHomeCircle, mdiBookCog, mdiCardAccountMail, mdiLinkedin, mdiGithub } from '@mdi/js';
+
+const route = useRoute();
+
+// Définir les icônes correspondantes à chaque nom
+const iconMap = {
+    Accueil: mdiHomeCircle,
+    "À propos de moi": mdiHead,
+    Portfolio: mdiBookCog,
+    Contact: mdiCardAccountMail
+};
+
+const props = defineProps({
+    pageUrl: String,
+    name: String,
+    collapsed: Boolean // Ajout de la propriété collapsed pour indiquer si le menu est réduit ou non
+});
+const { pageUrl, name, collapsed } = toRefs(props);
+
+// Fonction pour obtenir l'icône correspondante en fonction du nom
+function getIcon() {
+    if (iconMap.hasOwnProperty(name.value)) {
+        return iconMap[name.value];
+    } else {
+        console.error('Icône non trouvée pour le nom:', name.value);
+        return null;
+    }
+}
+</script>
+
 <template>
     <div class="flex items-center w-full my-[20px]">
-        <RouterLink
-            :to="pageUrl"
-            :class="pageUrl === route.path ? 'border-l-[#EF5465] text-[#EF5465]' : 'border-l-[#191922] text-[#FFFFFF]'"
-            class="border-l-4 w-full hover:text-[#EF5465]"
-        >
-            <div class="flex items-center pl-3 mx-3 cursor-pointer">
-                <div class="pl-3.5 font-[600] text-white text-[17px]">{{ name }}</div>
+        <RouterLink :to="pageUrl">
+            <div class="flex items-center mx-3 cursor-pointer text-white hover:text-red-600">
+                <!-- Condition pour afficher l'icône seule lorsque le menu est réduit -->
+                <template v-if="collapsed">
+                    <SvgIcon type="mdi" :path="getIcon()" class="h-6 w-6 mr-4 hover:text-[#EF5465]" />
+                </template>
+                <!-- Afficher l'icône avec le nom de la section lorsque le menu est déployé -->
+                <template v-else>
+                    <SvgIcon type="mdi" :path="getIcon()" class="h-6 w-6 mr-4 hover:text-[#EF5465]" />
+                    <div class="font-[600] text-[22px] hover:text-[#EF5465]">{{ name }}</div>
+                </template>
             </div>
         </RouterLink>
     </div>
