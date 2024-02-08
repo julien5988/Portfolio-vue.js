@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/raleway": "^5.0.16",
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.4.47",
+    "fontsource-raleway": "^4.0.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
     "vue-material-design-icons": "^5.3.0",

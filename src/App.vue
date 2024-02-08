@@ -4,6 +4,7 @@ import SideMenu from './components/SideMenu.vue';
 import SvgIcon from '@jamescoyle/vue-icon';
 import { ref } from 'vue';
 import { mdiChevronDoubleLeft,mdiChevronDoubleRight } from '@mdi/js';
+import 'fontsource-raleway';
 import router from './router';
 
 

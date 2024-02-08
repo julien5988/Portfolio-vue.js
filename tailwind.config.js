@@ -24,6 +24,9 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
+    fontFamily: {
+      sans: ['Raleway', 'sans-serif'],
+    },
     extend: {}
   },
   plugins: [
