@@ -43,17 +43,17 @@ const isHover = () => {
 <template>
     <div class="flex items-center w-full my-[20px]">
         <RouterLink :to="pageUrl"
-            :class="pageUrl === route.path ? 'border-l-[#EF5465] text-[#EF5465]' : 'border-l-[#191922] text-[#FFFFFF]'"
-            class="border-l-4 w-full hover:text-[#EF5465]" @mouseenter="isHover()" @mouseleave="isHover()">
-            <div class="flex items-center mx-3 cursor-pointer text-white hover:text-red-600">
+            :class="pageUrl === route.path ? 'border-l-blue-600 text-blue-600' : 'border-l-[#191922] text-[#FFFFFF]'"
+            class="border-l-4 w-full hover:text-blue-600" @mouseenter="isHover()" @mouseleave="isHover()">
+            <div class="flex items-center mx-3 cursor-pointer text-white hover:text-blue-600">
                 <!-- Condition pour afficher l'icône seule lorsque le menu est réduit -->
                 <template v-if="collapsed">
-                    <SvgIcon type="mdi" :path="getIcon()" class="h-8 w-8 mx-auto hover:text-[#EF5465]" />
+                    <SvgIcon type="mdi" :path="getIcon()" class="h-8 w-8 mx-auto hover:text-blue-600" />
                 </template>
                 <!-- Afficher l'icône avec le nom de la section lorsque le menu est déployé -->
                 <template v-else>
-                    <SvgIcon type="mdi" :path="getIcon()" class="h-6 w-6 mr-4 hover:text-[#EF5465]" />
-                    <div class="font-[600] text-[22px] hover:text-[#EF5465]">{{ name }}</div>
+                    <SvgIcon type="mdi" :path="getIcon()" class="h-6 w-6 mr-4 hover:text-blue-600" />
+                    <div class="font-[600] text-[22px] hover:text-blue-600">{{ name }}</div>
                 </template>
             </div>
         </RouterLink>

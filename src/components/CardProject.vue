@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps, toRef } from 'vue';
 import { RouterLink } from 'vue-router';
+import SvgIcon from '@jamescoyle/vue-icon';
+import {  mdiGithub } from '@mdi/js';
 
 // Définir les propriétés attendues pour le composant
 const props = defineProps({
@@ -26,8 +28,14 @@ const props = defineProps({
                         <p class="my-2">Note : 9.0</p>
                         <!-- Utiliser la propriété 'text' dynamiquement -->
                         <p>{{ text }}</p>
-                        <button class="bg-teal-500 px-6 py-2 font-semibold text-white rounded-full absolute bottom-5 ">
-                            Regarder maintenant
+                        <button class="bg-blue-600 px-6 py-2 font-semibold text-white rounded-full absolute bottom-5 ">
+                            <a href="https://github.com/julien5988/extensionMetadataUpdate.git">
+                            <SvgIcon 
+                            type="mdi"
+                            :path="mdiGithub"
+                            class="w-8 h-8"
+                            />
+                            </a>
                         </button>
                     </div>
                 </div>
