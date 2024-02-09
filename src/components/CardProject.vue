@@ -19,7 +19,6 @@ const props = defineProps({
         <div class="w-[300px] h-[420px] bg-transparent cursor-pointer group perspective">
             <div class="relative preserve-3d group-hover:my-rotate-y-180 w-full h-full duration-500">
                 <div class="absolute backface-hidden border-2  border-blue-600 w-full h-full">
-                    <!-- Utiliser la propriété 'image' dynamiquement -->
                     <img :src="image" class="w-full h-full">
                 </div>
                 <div class="absolute my-rotate-y-180 backface-hidden w-full h-full bg-gray-100 overflow-hidden">
